@@ -25,4 +25,7 @@ describe("fizzbuzz", () => {
   it("45 returns 'FizzBuzz'", () => {
     expect(fizzBuzz(45)).toEqual("FizzBuzz");
   });
+  it("102 should throw 'The number should be between 1 to 100'", () => {
+    expect(fizzBuzz(102)).toThrow("The number should be between 1 to 100");
+  });
 });
