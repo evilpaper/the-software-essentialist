@@ -4,26 +4,23 @@ describe("fizzbuzz", () => {
   it("each return value is a string", () => {
     expect(typeof fizzBuzz(3)).toBe("string");
   });
-  it("3 returns 'Fizz'", () => {
-    expect(fizzBuzz(3)).toEqual("Fizz");
+  it("returns 'Fizz' for multiples of 3", () => {
+    [3, 6, 9, 42]
+      .map((multiple) => fizzBuzz(multiple))
+      .forEach((m) => expect(m).toEqual("Fizz"));
   });
-  it("5 returns 'Buzz'", () => {
-    expect(fizzBuzz(5)).toEqual("Buzz");
+  it("returns 'Buzz' for multiples of 5", () => {
+    [5, 10, 20]
+      .map((multiple) => fizzBuzz(multiple))
+      .forEach((m) => expect(m).toEqual("Buzz"));
   });
-  it("15 returns 'FizzBuzz'", () => {
-    expect(fizzBuzz(15)).toEqual("FizzBuzz");
-  });
-  it("9 returns 'Fizz'", () => {
-    expect(fizzBuzz(9)).toEqual("Fizz");
+  it("returns 'FizzBuzz' for multiples of both 3 and 5", () => {
+    [15, 30, 45]
+      .map((multiple) => fizzBuzz(multiple))
+      .forEach((m) => expect(m).toEqual("FizzBuzz"));
   });
   it("43 returns '43'", () => {
     expect(fizzBuzz(43)).toEqual("43");
-  });
-  it("42 returns 'Fizz'", () => {
-    expect(fizzBuzz(42)).toEqual("Fizz");
-  });
-  it("45 returns 'FizzBuzz'", () => {
-    expect(fizzBuzz(45)).toEqual("FizzBuzz");
   });
   it("102 should throw 'The number should be between 1 to 100'", () => {
     expect(() => fizzBuzz(102)).toThrow(
