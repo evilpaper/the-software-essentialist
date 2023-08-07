@@ -1,23 +1,8 @@
 import { fizzBuzz } from "./fizzbuzz";
 
-describe("fizzbuzz", () => {
+describe("fizzBuzz", () => {
   it("each return value is a string", () => {
     expect(typeof fizzBuzz(3)).toBe("string");
-  });
-  it("returns 'Fizz' for multiples of 3", () => {
-    [3, 6, 9, 42]
-      .map((multiple) => fizzBuzz(multiple))
-      .forEach((m) => expect(m).toEqual("Fizz"));
-  });
-  it("returns 'Buzz' for multiples of 5", () => {
-    [5, 10, 20]
-      .map((multiple) => fizzBuzz(multiple))
-      .forEach((m) => expect(m).toEqual("Buzz"));
-  });
-  it("returns 'FizzBuzz' for multiples of both 3 and 5", () => {
-    [15, 30, 45]
-      .map((multiple) => fizzBuzz(multiple))
-      .forEach((m) => expect(m).toEqual("FizzBuzz"));
   });
   it("43 returns '43'", () => {
     expect(fizzBuzz(43)).toEqual("43");
@@ -26,5 +11,29 @@ describe("fizzbuzz", () => {
     expect(() => fizzBuzz(102)).toThrow(
       "The number should be between 1 to 100"
     );
+  });
+});
+
+describe('returns "Fizz" for multiples of 3', () => {
+  [3, 6, 9, 42].forEach((num) => {
+    test(`when given ${num} it returns "Fizz`, () => {
+      expect(fizzBuzz(num)).toEqual("Fizz");
+    });
+  });
+});
+
+describe('returns "Buzz" for multiples of 5', () => {
+  [5, 10, 20].forEach((num) => {
+    test(`when given ${num} it returns "Buzz"`, () => {
+      expect(fizzBuzz(num)).toEqual("Buzz");
+    });
+  });
+});
+
+describe('return "FizzBuzz" when given a multiple of 3 and 5', () => {
+  [15, 30, 45, 60, 75, 90].forEach((num) => {
+    test(`when given ${num} it returns "FizzBuzz"`, () => {
+      expect(fizzBuzz(num)).toEqual("FizzBuzz");
+    });
   });
 });
